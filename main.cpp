@@ -54,6 +54,40 @@ PlaylistNode* ExecuteMenu(char option, const string& playlistTitle, PlaylistNode
             break;
       }
 
+      case 'd': {
+         cout << "REMOVE SONG" << endl;
+         string uniqueID;
+         
+         cout << "Enter song's unique ID:" << endl;
+         getline(cin, uniqueID);
+
+         PlaylistNode* current = headNode;
+         PlaylistNode* previous = nullptr;
+
+         while (current != nullptr && current->GetID() != uniqueID) {
+            previous = current;
+            current = current->GetNext();
+         }
+            
+         if (current == nullptr) {
+            cout << "Song with ID \"" << uniqueID << "\" not found." << endl;
+         
+         } else {  
+            if (previous != nullptr) {
+               previous->SetNext(current->GetNext());
+            
+            } else {
+               headNode = current->GetNext();
+            }
+            
+            cout << "\"" << current->GetSongName() << "\" removed." << endl;
+            cout << endl;
+            delete current;
+         }
+         
+            break;
+      } 
+
 int main() {
    /* Type your code here */
    
