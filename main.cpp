@@ -7,8 +7,15 @@
 using namespace std;
 
 void PrintMenu(const string playlistTitle) {
-   /* Type your code here */
-   
+    cout << playlistTitle << " PLAYLIST MENU" << endl;   // PLAYLIST MENU SECTION
+    cout << "a - Add song" << endl;
+    cout << "d - Remove song" << endl;
+    cout << "c - Change position of song" << endl;
+    cout << "s - Output songs by specific artist" << endl;
+    cout << "t - Output total time of playlist (in seconds)" << endl;
+    cout << "o - Output full playlist" << endl;
+    cout << "q - Quit" << endl;
+    cout << endl;
 }
 
 PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headNode) {
