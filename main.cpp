@@ -3,6 +3,7 @@
 
 //GitHub Repository Link: 
 //Team Members: Fred Solis III & Garrison Regala
+// DO NOT NEED TO DO STEP 9
 
 using namespace std;
 
@@ -87,6 +88,90 @@ PlaylistNode* ExecuteMenu(char option, const string& playlistTitle, PlaylistNode
          
             break;
       } 
+
+      case 's': {
+         cout << "OUTPUT SONGS BY SPECIFIC ARTIST" << endl;
+         string artistName;
+         cout << "Enter artist's name:" << endl;
+         cout << endl;
+         getline(cin, artistName);
+         
+         if (headNode == nullptr) {
+            cout << "Playlist is empty" << endl;
+         } else {
+            int position = 1;
+            PlaylistNode* current = headNode;
+            
+            while (current != nullptr) {
+               if (current->GetArtistName() == artistName) {
+                  cout << position << "." << endl;
+                  current->PrintPlaylistNode();
+                  cout << endl;
+               }
+               
+               current = current->GetNext();
+               position++;
+            }
+            
+            if (position == 1) {
+               cout << "No songs found for artist \"" << artistName << "\"" << endl;
+            }
+         }
+               
+         break;
+      }
+
+      case 't': {
+         cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
+
+         int totalTime = 0;
+         PlaylistNode* current = headNode;
+
+         while (current != nullptr) {
+            
+            totalTime += current->GetSongLength();
+            current = current->GetNext();
+         }
+         
+         cout << "Total time: " << totalTime << " seconds" << endl;
+         cout << endl;
+         break;
+      }
+
+      case 'o': {
+         cout << playlistTitle << " - OUTPUT FULL PLAYLIST" << endl;
+         
+         if (headNode == nullptr) {
+            cout << "Playlist is empty" << endl;
+            cout << endl;
+         } else {
+            int position = 1;
+            PlaylistNode* current = headNode;
+   
+            while (current != nullptr) {
+               cout << position << "." << endl;
+               current->PrintPlaylistNode();
+               cout << endl;
+
+               current = current->GetNext();
+               position++;
+            }
+         }   
+
+         break;
+      }
+      
+      case 'q':
+      
+            
+      break;
+
+      default:
+         cout << "Invalid option. Please try again." << endl;
+   }
+
+   return headNode;
+}
 
 int main() {
    /* Type your code here */
