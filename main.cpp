@@ -190,7 +190,14 @@ int main() {
       cin.ignore();
       headNode = ExecuteMenu(option, playlistTitle, headNode);
       
-   } 
+   } while (option != 'q');
+   PlaylistNode* current = headNode;
+   
+   while (current != nullptr) {
+      PlaylistNode* temp = current;
+      current = current->GetNext();
+      delete temp;
+   }
    
    return 0;
 }
