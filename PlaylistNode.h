@@ -18,5 +18,14 @@ public:
 
    void SetNext(PlaylistNode* nodePtr);
    void InsertAfter(PlaylistNode* nodePtr);
-
    void PrintPlaylistNode() const;
+
+private:
+   string uniqueID;
+   string songName;
+   string artistName;
+   int songLength;
+   PlaylistNode* nextNodePtr;
+};
+
+#endif 
