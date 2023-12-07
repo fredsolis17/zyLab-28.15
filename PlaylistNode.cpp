@@ -42,3 +42,10 @@ void PlaylistNode::InsertAfter(PlaylistNode* nodePtr) {
    nodePtr->nextNodePtr = nextNodePtr;
    nextNodePtr = nodePtr;
 }
+
+void PlaylistNode::PrintPlaylistNode() const {
+   cout << "Unique ID: " << uniqueID << endl;
+   cout << "Song Name: " << songName << endl;
+   cout << "Artist Name: " << artistName << endl;
+   cout << "Song Length (in seconds): " << songLength << endl;
+}
